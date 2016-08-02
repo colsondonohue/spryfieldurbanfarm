@@ -1,0 +1,62 @@
+.info-page {
+  background-color: $light-green;
+}
+
+.info-page__container {
+  @include container(80%);
+  padding: 125px 0 50px;
+}
+
+.info-page__aside {
+  @include span(first 4 of 12);
+  position: fixed;
+
+  @include bp(xl) {
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+  }
+}
+
+.info-page__title {
+  margin-bottom: 1.2em;
+}
+
+.info-page__image {
+  margin-bottom: 3em;
+  width: 100%;
+}
+
+.info-page__image--half {
+  display: inline-block;
+  margin-right: 2.5%;
+  width: span(first 3 of 6);
+
+  &:nth-last-of-type(1) {
+    margin-right: 0;
+  }
+}
+
+.info-page__figure-image {
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+.info-page__content {
+  @include span(last 8 of 12);
+  @include clearfix;
+
+  @include bp(xl) {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+.info-page__subtitle {
+  margin-bottom: .75em;
+  margin-top: 1.25em;
+}
+
+.info-page__subtitle--no-top {
+  margin-top: 0;
+}

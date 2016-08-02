@@ -1,0 +1,51 @@
+.footer {
+  background-color: $dark-green;
+  text-align: center;
+  width: 100%;
+}
+
+.footer__title {
+  color: $white;
+  display: inline-block;
+  letter-spacing: .05em;
+  padding: 3.125em 1em 2.833em;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.footer__links {
+  display: inline-block;
+  margin-bottom: 75px;
+
+  &:hover > .footer__icon {
+    opacity: .4;
+  }
+}
+
+.footer__icon {
+  @include trans(.3s);
+  border: 0;
+  color: $white;
+  display: inline-block;
+  font-size: 4em;
+  padding-right: 1.25em;
+
+  &:nth-last-of-type(1) {
+    padding-right: 0;
+  }
+
+  &:visited {
+    color: $white;
+  }
+
+  &:hover {
+    border: 0;
+    opacity: 1 !important;
+  }
+}
+
+.footer__copyright {
+  background-color: $dark-text;
+  color: $white;
+  padding: 2em;
+}

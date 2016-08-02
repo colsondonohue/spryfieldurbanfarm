@@ -1,0 +1,142 @@
+.nav {
+  @include trans(.4s);
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  position: fixed;
+  width: container(12);
+  z-index: 500;
+
+  @include bp(lg) {
+    justify-content: space-between;
+  }
+}
+
+.nav--bg {
+  background-color: $grey-green;
+  box-shadow: 0 0 20px 1px $shadow;
+
+  .nav__link {
+    color: $dark-text;
+
+    &:visited {
+      color: $dark-text;
+    }
+
+    &:hover {
+      color: $dark-text !important;
+    }
+  }
+
+  .nav__svg {
+    stroke: $dark-text;
+  }
+
+}
+
+.nav__link-container {
+  @include trans(.3s);
+  justify-content: flex-end;
+
+  &:hover > .nav__link {
+    color: $hover-nav;
+  }
+
+  @include bp(lg) {
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    text-align: center;
+    visibility: hidden;
+    width: 100%;
+  }
+}
+
+.nav__link-container--active {
+  @include trans(.3s);
+  height: 405px;
+  opacity: 1;
+  visibility: visible;
+
+  @include bp(sm) {
+    height: 321px;
+  }
+}
+
+.nav__link {
+  @include trans(.3s);
+  border: 0;
+  color: $white;
+  font-size: 1.6em;
+  letter-spacing: .11em;
+  padding-right: 1.5em;
+  text-transform: uppercase;
+
+  &:visited {
+    color: $white;
+  }
+
+  &:hover {
+    border: 0;
+    color: $white !important;
+  }
+
+  &:nth-last-of-type(1) {
+    padding-right: 0;
+  }
+
+  @include bp(lg) {
+    border-top: 1px $hover-nav solid;
+    display: block;
+    flex-basis: 100%;
+    padding: 2em 0;
+    width: 100%;
+
+    &:hover {
+      border-top: 1px $hover-nav solid;
+    }
+  }
+}
+
+.nav__logo {
+  border: 0;
+  display: block;
+  margin-bottom: 8.5px;
+  margin-top: 8.5px;
+  width: 80px;
+
+  &:hover {
+    border: 0;
+  }
+
+  @include bp(lg) {
+    margin-left: 7em;
+  }
+}
+
+.nav__trigger {
+  border: 0;
+  cursor: pointer;
+  display: none;
+  width: 30px;
+
+  &:hover {
+    border: 0;
+  }
+
+  @include bp(lg) {
+    display: block;
+    margin-right: 7em;
+  }
+}
+
+.nav__svg {
+  fill: none;
+  stroke: $white;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+  stroke-width: 18;
+}

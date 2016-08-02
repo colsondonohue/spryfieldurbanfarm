@@ -1,0 +1,82 @@
+.quick-links {
+  background-color: $light-green;
+  padding: 75px;
+  text-align: center;
+}
+
+.quick-links--dark {
+  background-color: $hover-nav;
+  color: $white;
+}
+
+.quick-links__container {
+  @include clearfix;
+  display: inline-block;
+  margin-top: 50px;
+
+  @include bp(xl) {
+    margin-top: 0;
+  }
+}
+
+.quick-links__link {
+  @include trans(.2s);
+  border: 0;
+  color: $dark-text;
+  display: inline-block;
+  margin-right: 100px;
+
+  &:nth-last-of-type(1) {
+    margin-right: 0;
+  }
+
+  &:visited {
+    color: $dark-text;
+  }
+
+  &:hover {
+    border: 0;
+    color: $dark-text;
+    transform: scale(1.03);
+  }
+
+  @include bp(xl) {
+    display: block;
+    float: left;
+    margin-right: 0;
+    margin-top: 75px;
+    width: 50%;
+  }
+
+  @include bp(sm) {
+    width: 100%;
+  }
+}
+
+.quick-links__link--dark {
+  color: $white;
+  margin-right: 150px;
+
+  &:visited {
+    color: $white;
+  }
+
+  @include bp(xl) {
+    margin-right: 0;
+    width: 100%;
+  }
+}
+
+.quick-links__image {
+  margin-bottom: 15px;
+  width: 150px;
+}
+
+.quick-links__image--round {
+  border-radius: 50%;
+}
+
+.quick-links__image--dark {
+  margin-bottom: 25px;
+  width: 150px;
+}

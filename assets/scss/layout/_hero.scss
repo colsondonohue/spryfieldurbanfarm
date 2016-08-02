@@ -1,0 +1,20 @@
+.hero {
+  @include container;
+  background: url('../images/hero-alt.jpg') right / cover no-repeat;
+}
+
+.hero__content {
+  @include span(5 of 12 last);
+  margin-right: span(2 of 12);
+  padding-bottom: 100px;
+  padding-top: 175px;
+
+  @include bp(lg) {
+    @include span(10 of 12);
+    margin-left: span(1 of 12) + gutter(12);
+  }
+}
+
+.hero__text {
+  color: $white;
+}

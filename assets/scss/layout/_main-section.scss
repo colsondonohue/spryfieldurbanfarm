@@ -1,0 +1,100 @@
+.main-section {
+  @include container;
+  display: table-row;
+}
+
+.main-section__image {
+  display: table-cell;
+  position: relative;
+  width: 45%;
+
+  @include bp(lg) {
+    display: block;
+    height: 300px;
+    width: 100%;
+  }
+}
+
+.main-section__content {
+  background-color: $dark-text;
+  color: $white;
+  display: table-cell;
+  padding: 75px;
+  position: relative;
+  width: 55%;
+
+  &::before {
+    border-bottom: 40px solid transparent;
+    border-right: 40px solid $dark-text;
+    border-top: 40px solid transparent;
+    content: '';
+    display: block;
+    height: 0;
+    left: -40px;
+    position: absolute;
+    top: 50%;
+    transform: translatey(-50%);
+    width: 0;
+  }
+
+  @include bp(lg) {
+    display: block;
+    width: 100%;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.main-section__image--start-garden {
+  background: url('../images/start-garden-img.jpg') right / cover no-repeat;
+}
+
+.main-section__image--come-event {
+  background: url('../images/come-event-img.jpg') right / cover no-repeat;
+  left: 55%;
+
+  @include bp(lg) {
+    left: auto;
+  }
+}
+
+.main-section__image--buy-produce {
+  background: url('../images/buy-produce-img.jpg') right / cover no-repeat;
+}
+
+.main-section__image--get-involved {
+  background: url('../images/get-involved-img.jpg') left / cover no-repeat;
+  left: 55%;
+
+  @include bp(lg) {
+    left: auto;
+  }
+}
+
+.main-section__content--left {
+  background-color: $light-green;
+  color: $dark-text;
+  left: -45%;
+
+  &::before {
+    border-left: 40px solid $light-green;
+    border-right: 0;
+    left: auto;
+    position: absolute;
+    right: -40px;
+  }
+
+  @include bp(lg) {
+    left: auto;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.main-section__p--extra-margin {
+  margin-bottom: 36px;
+}

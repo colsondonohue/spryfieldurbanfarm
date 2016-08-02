@@ -1,0 +1,29 @@
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+}
+
+@mixin vertical-center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin trans($duration) {
+  transition: all $duration ease-in-out;
+}
+
+@mixin bp($point) {
+  @if $point == xl {
+    @media (max-width: 69.375em)  { @content; } //69.375=111/1.6 to account for default font size since typography is imported after
+  }
+  @else if $point == lg {
+    @media (max-width: 52.1875em)  { @content; } //52.1875=83.5/1.6
+  }
+  @else if $point == sm {
+    @media (max-width: 41.875em)  { @content; } //41.875=67/1.6
+  }
+}
