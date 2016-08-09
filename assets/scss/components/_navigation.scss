@@ -10,7 +10,7 @@
   width: container(12);
   z-index: 500;
 
-  @include bp(lg) {
+  @include bp(ml) {
     justify-content: space-between;
   }
 }
@@ -45,7 +45,7 @@
     color: $hover-nav;
   }
 
-  @include bp(lg) {
+  @include bp(ml) {
     height: 0;
     opacity: 0;
     overflow: hidden;
@@ -57,12 +57,12 @@
 
 .nav__link-container--active {
   @include trans(.3s);
-  height: 405px;
+  height: 486px;
   opacity: 1;
   visibility: visible;
 
   @include bp(sm) {
-    height: 321px;
+    height: 385.14px;
   }
 }
 
@@ -88,7 +88,7 @@
     padding-right: 0;
   }
 
-  @include bp(lg) {
+  @include bp(ml) {
     border-top: 1px $hover-nav solid;
     display: block;
     flex-basis: 100%;
@@ -112,8 +112,12 @@
     border: 0;
   }
 
-  @include bp(lg) {
-    margin-left: 7em;
+  @include bp(ml) {
+    margin-left: 8em;
+  }
+
+  @include bp(sm) {
+    margin-left: 5em;
   }
 }
 
@@ -127,9 +131,13 @@
     border: 0;
   }
 
-  @include bp(lg) {
+  @include bp(ml) {
     display: block;
-    margin-right: 7em;
+    margin-right: 8em;
+  }
+
+  @include bp(sm) {
+    margin-right: 5em;
   }
 }
 

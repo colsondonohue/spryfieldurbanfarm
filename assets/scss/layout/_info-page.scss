@@ -32,8 +32,13 @@
   margin-right: 2.5%;
   width: span(first 3 of 6);
 
-  &:nth-last-of-type(1) {
+  &:nth-of-type(2n) {
     margin-right: 0;
+  }
+
+  @include bp(sm) {
+    margin-right: 0;
+    width: 100%;
   }
 }
 
@@ -59,4 +64,11 @@
 
 .info-page__subtitle--no-top {
   margin-top: 0;
+}
+
+.info-page__list > p {
+  display: list-item;
+  font-size: 1.8em;
+  list-style: disc;
+  margin-left: 3em;
 }

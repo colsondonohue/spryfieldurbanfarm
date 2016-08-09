@@ -1,6 +1,12 @@
 .hero {
   @include container;
-  background: url('../images/hero-alt.jpg') right / cover no-repeat;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero__img {
+  display: none;
+  position: absolute;
 }
 
 .hero__content {
@@ -8,6 +14,7 @@
   margin-right: span(2 of 12);
   padding-bottom: 100px;
   padding-top: 175px;
+  position: relative;
 
   @include bp(lg) {
     @include span(10 of 12);

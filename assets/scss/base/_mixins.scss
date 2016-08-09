@@ -20,6 +20,9 @@
   @if $point == xl {
     @media (max-width: 69.375em)  { @content; } //69.375=111/1.6 to account for default font size since typography is imported after
   }
+  @else if $point == ml {
+    @media (max-width: 57.5em)  { @content; } //57.5=92/1.6
+  }
   @else if $point == lg {
     @media (max-width: 52.1875em)  { @content; } //52.1875=83.5/1.6
   }
