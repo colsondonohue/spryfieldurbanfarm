@@ -61,6 +61,10 @@
     color: $white;
   }
 
+  &:hover, &:active {
+    color: $white;
+  }
+
   @include bp(xl) {
     margin-right: 0;
     width: 100%;

@@ -2,19 +2,19 @@
   var container = document.querySelector('.js-hero'),
       heroImg = document.querySelector('.js-hero__img'),
       nav = document.querySelector('.js-nav'),
-      simpla = Simpla('BkZeRJtd'),
-      url = window.location.href;
+      simpla = Simpla('BkZeRJtd');
 
   setInterval(function checkUrl() {
+    var url = window.location.href;
     if (url.indexOf('#edit') != -1) {
-      heroImg.style.width = container.offsetWidth + 'px';
-      heroImg.style.height = container.offsetHeight + 'px';
+      heroImg.style.width = container.offsetWidth / 2 + 'px';
+      heroImg.style.height = container.offsetHeight / 2 + 'px';
+      heroImg.style.left = (container.offsetWidth / 4) + 'px';
+      heroImg.style.top = (container.offsetHeight / 4) + 'px';
       heroImg.style.display = 'block';
-      nav.style.display = 'none';
     }
     else {
       heroImg.style.display = 'none';
-      nav.style.display = 'flex';
     }
   }, 1000);
 
