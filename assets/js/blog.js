@@ -1,10 +1,11 @@
 (function() {
   var container = document.querySelector('.js-blog'),
-      simpla = Simpla('BkZeRJtd');
+      simpla = Simpla('BkZeRJtd'),
+      blogCount;
 
   simpla.get('blog').then(function(postIDs) {
     var blogPosts = document.createDocumentFragment();
-    var blogCount = postIDs.length || 0;
+    blogCount = postIDs.length || 0;
     var countDown = blogCount;
     if (postIDs.constructor === Array) {
       (function render(index) {
