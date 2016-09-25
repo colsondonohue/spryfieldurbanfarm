@@ -7,25 +7,24 @@
     var blogCount = postIDs.length || 0;
     var countDown = blogCount;
     if (postIDs.constructor === Array) {
-      postIDs.forEach(function(postID, index) {
+      (function render(index) {
         var post,
             postChecker = true;
 
-        simpla.get('blog.' + postID + '.post').then(function(postText) {
+        simpla.get('blog.' + postIDs[index] + '.post').then(function(postText) {
           if (postText.text == '<p><br></p>') {
             postChecker = false;
           }
         }).then(function() {
-          console.log(postChecker);
           if (index >= blogCount - 5 && postChecker) {
             post = document.createElement('simpla-block');
 
-            post.sid = postID;
+            post.sid = postIDs[index];
             post.innerHTML += '<figure class="info-page__image info-page__image--half">' +
                                 '<simpla-img class="info-page__figure-image" sid="image-1"></simpla-img>' +
                                 '<figcaption><simpla-text sid="caption-1"></simpla-text></figcaption>' +
                               '</figure>';
-            if (postID['image-2']) {
+            if (postIDs[index]['image-2']) {
               post.innerHTML += '<figure class="info-page__image info-page__image--half">' +
                                   '<simpla-img class="info-page__figure-image" sid="image-2"></simpla-img>' +
                                   '<figcaption><simpla-text sid="caption-2"></simpla-text></figcaption>' +
@@ -41,8 +40,11 @@
           if (countDown == 0) {
             container.appendChild(blogPosts);
           }
+          else {
+            render(index + 1);
+          }
         });
-      });
+      }(0));
     }
   });
 
