@@ -1,36 +1,48 @@
 (function() {
   var container = document.querySelector('.js-blog'),
-      simpla = Simpla('BkZeRJtd'),
-      blogCount;
+      simpla = Simpla('BkZeRJtd');
 
   simpla.get('blog').then(function(postIDs) {
     var blogPosts = document.createDocumentFragment();
-    blogCount = postIDs.length || 0;
+    var blogCount = postIDs.length || 0;
+    var countDown = blogCount;
     if (postIDs.constructor === Array) {
       postIDs.forEach(function(postID, index) {
-        var post;
-        if (index >= blogCount - 5) {
-          post = document.createElement('simpla-block');
+        var post,
+            postChecker = true;
 
-          post.sid = postID;
-          post.innerHTML += '<figure class="info-page__image info-page__image--half">' +
-                              '<simpla-img class="info-page__figure-image" sid="image-1"></simpla-img>' +
-                              '<figcaption><simpla-text sid="caption-1"></simpla-text></figcaption>' +
-                            '</figure>';
-          if (postID['image-2']) {
-            post.innerHTML += '<figure class="info-page__image info-page__image--half">' +
-                                '<simpla-img class="info-page__figure-image" sid="image-2"></simpla-img>' +
-                                '<figcaption><simpla-text sid="caption-2"></simpla-text></figcaption>' +
-                              '</figure>';
+        simpla.get('blog.' + postID + '.post').then(function(postText) {
+          if (postText.text == '<p><br></p>') {
+            postChecker = false;
           }
-          post.innerHTML += '<h3 class="info-page__subtitle info-page__subtitle--no-top"><simpla-text sid="title"></simpla-text></h3>' +
-                            '<simpla-text sid="post"></simpla-text>';
+        }).then(function() {
+          console.log(postChecker);
+          if (index >= blogCount - 5 && postChecker) {
+            post = document.createElement('simpla-block');
 
-          blogPosts.insertBefore(post, blogPosts.firstChild);
-        }
+            post.sid = postID;
+            post.innerHTML += '<figure class="info-page__image info-page__image--half">' +
+                                '<simpla-img class="info-page__figure-image" sid="image-1"></simpla-img>' +
+                                '<figcaption><simpla-text sid="caption-1"></simpla-text></figcaption>' +
+                              '</figure>';
+            if (postID['image-2']) {
+              post.innerHTML += '<figure class="info-page__image info-page__image--half">' +
+                                  '<simpla-img class="info-page__figure-image" sid="image-2"></simpla-img>' +
+                                  '<figcaption><simpla-text sid="caption-2"></simpla-text></figcaption>' +
+                                '</figure>';
+            }
+            post.innerHTML += '<h3 class="info-page__subtitle info-page__subtitle--no-top"><simpla-text sid="title"></simpla-text></h3>' +
+                              '<simpla-text sid="post"></simpla-text>';
+
+            blogPosts.insertBefore(post, blogPosts.firstChild);
+          }
+        }).then(function() {
+          countDown--;
+          if (countDown == 0) {
+            container.appendChild(blogPosts);
+          }
+        });
       });
-
-      container.appendChild(blogPosts);
     }
   });
 

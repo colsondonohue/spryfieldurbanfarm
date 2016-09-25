@@ -187,5 +187,7 @@
       google.maps.event.trigger(map, 'resize');
       map.setCenter(center);
     });
+
+    map.getDiv().firstChild.style.top = '0';
   }
 }());
