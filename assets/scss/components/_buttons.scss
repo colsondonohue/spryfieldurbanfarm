@@ -131,6 +131,14 @@
       top: 180px;
     }
 
+    &:nth-of-type(6) {
+      top: 225px;
+    }
+
+    &:nth-of-type(7) {
+      top: 270px;
+    }
+
     @include bp(sm) {
       &:nth-of-type(3) {
         top: 74px;
@@ -142,6 +150,14 @@
 
       &:nth-of-type(5) {
         top: 147px;
+      }
+
+      &:nth-of-type(6) {
+        top: 184px;
+      }
+
+      &:nth-of-type(7) {
+        top: 220px;
       }
     }
   }
