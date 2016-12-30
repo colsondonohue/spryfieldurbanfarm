@@ -4,6 +4,12 @@
       nav = document.querySelector('.js-nav'),
       simpla = Simpla('BkZeRJtd');
 
+  simpla
+  .get('hero-img')
+  .then(function(data) {
+    container.style.background = 'url(' + data.src + ') right / cover no-repeat';
+  });
+
   setInterval(function checkUrl() {
     var url = window.location.href;
     if (url.indexOf('#edit') != -1) {
@@ -17,10 +23,4 @@
       heroImg.style.display = 'none';
     }
   }, 1000);
-
-  simpla
-  .get('hero-img')
-  .then(function(data) {
-    container.style.background = 'url(' + data.src + ') right / cover no-repeat';
-  });
 }());
