@@ -4,7 +4,6 @@
       blogCount;
 
   simpla.get('blog').then(function(postIDs) {
-    var blogPosts = document.createDocumentFragment();
     blogCount = postIDs.length || 0;
     var countDown = blogCount;
     if (postIDs.constructor === Array) {
@@ -34,14 +33,11 @@
             post.innerHTML += '<h3 class="info-page__subtitle info-page__subtitle--no-top"><simpla-text sid="title"></simpla-text></h3>' +
                               '<simpla-text sid="post"></simpla-text>';
 
-            blogPosts.insertBefore(post, blogPosts.firstChild);
+            container.insertBefore(post, container.firstChild);
           }
         }).then(function() {
           countDown--;
-          if (countDown == 0) {
-            container.appendChild(blogPosts);
-          }
-          else {
+          if (countDown !== 0) {
             render(index + 1);
           }
         });
